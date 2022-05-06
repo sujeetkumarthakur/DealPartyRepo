@@ -1,0 +1,43 @@
+<<<<<<< HEAD
+#line1 from  branch b
+=======
+#line1
+>>>>>>> 4a329f00052974b23ec3c0533dd23b7713c7c5dd
+server.port=4565
+
+#internal resource view resolver
+#internal resource view resolver cinfguration
+spring.mvc.view.prefix= /WEB-INF/views/
+spring.mvc.view.suffix= .jsp
+
+# create and drop tables and sequences, loads import.sql
+spring.jpa.hibernate.ddl-auto=update
+
+# Oracle settings
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.username=system
+spring.datasource.password=system
+spring.datasource.driver-class=oracle.jdbc.driver.OracleDriver
+
+#loggers
+status = warn
+name= RollingFileLogConfigDemo
+
+# Log files location
+property.basePath = C:\Users\V9Com\Desktop\Demo
+
+# RollingFileAppender name, pattern, path and rollover policy
+appender.rolling.type = RollingFile
+appender.rolling.name = fileLogger
+appender.rolling.fileName= ${basePath}/app.log
+appender.rolling.filePattern= ${basePath}/app_%d{yyyyMMdd}.log.gz
+appender.rolling.layout.type = PatternLayout
+appender.rolling.layout.pattern = %d{yyyy-MM-dd HH:mm:ss.SSS} %level [%t] [%l] - %msg%n
+appender.rolling.policies.type = Policies
+
+
+# Delete all files older than 30 days
+appender.rolling.strategy.delete.ifLastModified.age = 30d
+
+# Configure root logger
+rootLogger.level = debug
